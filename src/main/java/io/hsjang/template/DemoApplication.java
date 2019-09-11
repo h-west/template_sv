@@ -30,7 +30,7 @@ public class DemoApplication implements WebFluxConfigurer{
 	
 	@Bean
 	public RouterFunction<ServerResponse> resources(@Value("classpath:/static/index.html") Resource index) {
-		return RouterFunctions.route(RequestPredicates.GET("/"), req -> ServerResponse.ok().contentType(MediaType.TEXT_HTML).body(index));
+		return RouterFunctions.route(RequestPredicates.GET("/"), req -> ServerResponse.ok().contentType(MediaType.TEXT_HTML).syncBody(index));
 	}
 	
 	@Override
